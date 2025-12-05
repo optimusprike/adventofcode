@@ -9,6 +9,10 @@ public interface Problem {
 
     ThreadLocal<Boolean> isTest = ThreadLocal.withInitial(() -> false);
 
+    default String name() {
+        return getClass().getSimpleName();
+    }
+
     default List<String> lines() {
         String file = isTest.get() ? testFile() : inputFile();
         return read(file);
@@ -34,14 +38,14 @@ public interface Problem {
 
     default void solve() {
         isTest.set(false);
-        System.out.println("solving real file");
+        System.out.println("solving real file for " + name());
         p1();
         p2();
     }
 
     default void solveTest() {
         isTest.set(true);
-        System.out.println("solving test file");
+        System.out.println("solving test file for " + name());
         p1();
         p2();
     }
