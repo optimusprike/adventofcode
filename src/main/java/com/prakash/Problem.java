@@ -7,15 +7,22 @@ import java.util.List;
 
 public interface Problem {
 
+    ThreadLocal<Boolean> isTest = ThreadLocal.withInitial(() -> false);
+
+    default List<String> lines() {
+        String file = isTest.get() ? testFile() : inputFile();
+        return read(file);
+    }
+
     default int day() {
         String className = getClass().getSimpleName();
         String number = className.replaceAll("\\D+", "");
         return number.isEmpty() ? -1 : Integer.parseInt(number);
     }
 
-    void p1(String fileName);
+    void p1();
 
-    void p2(String fileName);
+    void p2();
 
     default String inputFile() {
         return "input_day" + day() + ".txt";
@@ -26,15 +33,17 @@ public interface Problem {
     }
 
     default void solve() {
+        isTest.set(false);
         System.out.println("solving real file");
-        p1(inputFile());
-        p2(inputFile());
+        p1();
+        p2();
     }
 
     default void solveTest() {
+        isTest.set(true);
         System.out.println("solving test file");
-        p1(testFile());
-        p2(testFile());
+        p1();
+        p2();
     }
 
     default void solveBoth() {

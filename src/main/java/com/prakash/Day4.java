@@ -9,8 +9,8 @@ public class Day4 implements Problem {
     }
 
     @Override
-    public void p1(String fileName) {
-        var grid = read(fileName)
+    public void p1() {
+        var grid = lines()
                 .stream()
                 .map(String::toCharArray)
                 .toArray(char[][]::new);
@@ -28,8 +28,8 @@ public class Day4 implements Problem {
     }
 
     @Override
-    public void p2(String fileName) {
-        var grid = read(fileName)
+    public void p2() {
+        var grid = lines()
                 .stream()
                 .map(String::toCharArray)
                 .toArray(char[][]::new);
