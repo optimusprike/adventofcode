@@ -65,30 +65,15 @@ public class Day4 implements Problem {
     private boolean eval(int i, int j, int r, int c, char[][] grid) {
         if (i < 0 || i >= r || j < 0 || j >= c || grid[i][j] == '.') return false;
         int count = 0;
-        // up left
-        if (i - 1 > -1 && j - 1 > -1 && i - 1 < r && j - 1 < c && grid[i - 1][j - 1] == '@') count++;
-
-        // up
-        if (i - 1 > -1 && j > -1 && i - 1 < r && j < c && grid[i - 1][j] == '@') count++;
-
-        // up right
-        if (i - 1 > -1 && j + 1 > -1 && i - 1 < r && j + 1 < c && grid[i - 1][j + 1] == '@') count++;
-
-        // left
-        if (i > -1 && j - 1 > -1 && i < r && j - 1 < c && grid[i][j - 1] == '@') count++;
-
-        // right
-        if (i > -1 && j + 1 > -1 && i < r && j + 1 < c && grid[i][j + 1] == '@') count++;
-
-        // down left
-        if (i + 1 > -1 && j - 1 > -1 && i + 1 < r && j - 1 < c && grid[i + 1][j - 1] == '@') count++;
-
-        // down
-        if (i + 1 > -1 && j > -1 && i + 1 < r && j < c && grid[i + 1][j] == '@') count++;
-
-        // down right
-        if (i + 1 > -1 && j + 1 > -1 && i + 1 < r && j + 1 < c && grid[i + 1][j + 1] == '@') count++;
-
+        int[] dr = {-1, -1, -1, 0, 0, 1, 1, 1};
+        int[] dc = {-1, 0, 1, -1, 1, -1, 0, 1};
+        for (int d = 0; d < 8; d++) {
+            var ni = i + dr[d];
+            var nj = j + dc[d];
+            if (ni >= 0 && ni < r && nj >= 0 && nj < c && grid[ni][nj] == '@') {
+                count++;
+            }
+        }
         return count < 4;
     }
 
