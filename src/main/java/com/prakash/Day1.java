@@ -4,7 +4,7 @@ import io.vavr.control.Try;
 
 import java.util.Arrays;
 
-public class Day1 {
+public class Day1 implements Problem {
     private int start;
     private int result;
 
@@ -37,7 +37,11 @@ public class Day1 {
         System.out.println("part2 my way: " + result);
     }
 
-    private void processPart1(String move) {
+    @Override
+    public void p1() {
+        lines().stream()
+                .map(line -> new String[]{line.substring(0,1), line.substring(1)})
+
         var direction = move.substring(0, 1);
         var amount = Integer.parseInt(move.substring(1));
         amount %= 100;
