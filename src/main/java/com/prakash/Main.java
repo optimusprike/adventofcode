@@ -10,7 +10,8 @@ public class Main {
 //        Day3 day3 = new Day3();
 //        day3.solve("input_day3.txt");
 
-        // new Day4().solveBoth();
-        new Day5().solveBoth();
+//         new Day4().solveBoth();
+//         new Day5().solveBoth();
+        new Day6().solveBoth();
     }
 }
