@@ -5,9 +5,6 @@ import java.util.List;
 
 public class Day4 implements Problem {
 
-    public Day4() {
-    }
-
     @Override
     public void p1() {
         var grid = lines()

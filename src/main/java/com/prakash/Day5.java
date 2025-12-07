@@ -7,9 +7,6 @@ import java.util.List;
 
 public class Day5 implements Problem {
 
-    public Day5() {
-    }
-
     @Override
     public void p1() {
         var input = lines().stream()

@@ -4,14 +4,15 @@ public class Main {
 
     public static void main(String[] args) {
 //        Day1 day1 = new Day1();
-//        day1.solve("input.txt");
+//        day1.solve("input_day1.txt");
 //        Day2 day2 = new Day2();
 //        day2.solve("input_day2.txt");
 //        Day3 day3 = new Day3();
 //        day3.solve("input_day3.txt");
 
+        new Day1().solveBoth();
 //         new Day4().solveBoth();
 //         new Day5().solveBoth();
-        new Day6().solveBoth();
+      //  new Day6().solveBoth();
     }
 }
