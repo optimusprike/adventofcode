@@ -4,7 +4,7 @@ import io.vavr.control.Try;
 
 import java.util.Arrays;
 
-public class Day2 {
+public class Day2 implements Problem{
 
     private long result;
 
@@ -31,7 +31,8 @@ public class Day2 {
         System.out.println("part2: " + result);
     }
 
-    public void p1(String range) {
+    @Override
+    public void p1() {
         String[] split = range.split("-");
         var leftStr = split[0];
         var rightStr = split[1].split("\n")[0];
@@ -51,7 +52,8 @@ public class Day2 {
         }
     }
 
-    public void p2(String range) {
+    @Override
+    public void p2() {
         String[] split = range.split("-");
         var leftStr = split[0];
         var rightStr = split[1].split("\n")[0];
